@@ -11,17 +11,17 @@
 import express from "express";
 import publicrouter from "./routes/public.routes.js"
 import privaterouter from "./routes/private.route.js"
-import fs from "fs"
+import fs from "fs"//node js ka build in
 import path  from "path"
 import { fileURLToPath } from "url";
 import logmiddleware from "./middleware/log.middleware.js"
 const app=express();
 const port=8080;
 //log name ka folder banayenge
-const __filename=fileURLToPath(import.meta.url)
-const __dirname=path.dirname(__filename);
-if(!fs.existsSync(path.join(__dirname,"logs"))){
-    fs.mkdirSync(path.join(__dirname,"logs"))
+const __filename=fileURLToPath(import.meta.url)//ye file path batata hai
+const __dirname=path.dirname(__filename);//ye folder ka path 
+if(!fs.existsSync(path.join(__dirname,"logs"))){//if current folder me logs ka nam nahi mila to 
+    fs.mkdirSync(path.join(__dirname,"logs"))//logs nam ka folder bana do
 }
 
 //&Inbuilt Middleware--Incoming requests me agar JSON body ho to usse parse karke req.body me daal deta hai.
